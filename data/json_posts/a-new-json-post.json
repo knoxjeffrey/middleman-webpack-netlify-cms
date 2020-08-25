@@ -1,4 +1,7 @@
 {
   "title": "A new JSON post",
-  "body": "## A title here\n\nSome body here."
+  "body": "## A title here\n\nSome body here.",
+  "image": [
+    "https://ucarecdn.com/4fa9bc0d-dee1-46a5-ad34-afea2ff28e0f/"
+  ]
 }
