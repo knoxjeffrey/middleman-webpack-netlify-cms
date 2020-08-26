@@ -27,7 +27,7 @@ const externals = [
     global: 'NetlifyCmsApp',
     assetDir: 'dist',
     assetName: 'netlify-cms-app.js',
-  },
+  }
 ];
 
 module.exports = {

@@ -1,14 +1,29 @@
 backend:
-  name: git-gateway
-  commit_messages:
-    create: "Create {{collection}} “{{slug}}”"
-    update: "Update {{collection}} “{{slug}}”"
-    delete: "Delete {{collection}} “{{slug}}”"
-    uploadMedia: "[skip ci] Upload “{{path}}”"
-    deleteMedia: "[skip ci] Delete “{{path}}”"
+  name: github
+  repo: knoxjeffrey/middleman-webpack-netlify-cms # Path to your GitHub repository
+  # name: git-gateway
+  # commit_messages:
+  #   create: "Create {{collection}} “{{slug}}”"
+  #   update: "Update {{collection}} “{{slug}}”"
+  #   delete: "Delete {{collection}} “{{slug}}”"
+  #   uploadMedia: "[skip ci] Upload “{{path}}”"
+  #   deleteMedia: "[skip ci] Delete “{{path}}”"
 
-media_folder: source/assets/images/uploads/
-public_folder: /assets/images/uploads/
+# media_folder: source/assets/images/uploads/
+# media_library:
+#   name: uploadcare
+#   config:
+#     publicKey: 53f93089bba99b67a733
+#     previewStep: false
+#   settings:
+#     autoFilename: true
+# public_folder: /assets/images/uploads/
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: jeff-knox-freeagent-test
+    api_key: 979997815548229
 
 collections:
   - name: posts
@@ -21,3 +36,20 @@ collections:
     fields:
       - {label: Title, name: title, widget: string}
       - {label: Body, name: body, widget: markdown}
+
+  - name: json_posts
+    label: JSON Posts
+    format: json
+    extension: json
+    folder: data/json_posts/
+    create: true
+    slug: '{{title}}'
+    # media_library:
+    #   config:
+    #     multiple: false
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: Body, name: body, widget: markdown}
+      - {label: Image, name: image, widget: image}
+
+

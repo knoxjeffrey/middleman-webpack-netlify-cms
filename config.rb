@@ -54,6 +54,15 @@ data.posts.each do |_filename, post|
         ignore: true
 end
 
+data.json_posts.each do |_filename, post|
+  # product is an array: [_filename, {data}]
+  proxy "/json-posts/#{post[:title].parameterize}/index.html",
+        'posts-detail.html',
+        locals: { post: post },
+        layout: 'layout',
+        ignore: true
+end
+
 helpers do
   def markdown(content)
     Tilt['markdown'].new(context: @app) { content }.render
